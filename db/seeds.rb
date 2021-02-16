@@ -1,72 +1,54 @@
-# THIS SEED FILE NEEDS TO BE ENTIRELY REPLACED -- I'M LEAVING CODE FOR YOUR REFERENCE ONLY!
-
-Plant.destroy_all
-Person.destroy_all
-PlantParenthood.destroy_all
-Plant.reset_pk_sequence
-Person.reset_pk_sequence
-PlantParenthood.reset_pk_sequence
-
-########### different ways to write your seeds ############
-
-# 1: save everything to variables (makes it easy to connect models, best for when you want to be intentional about your seeds)
-basil = Plant.create(name: "basil the herb", bought: 20200610, color: "green")
-sylwia = Person.create(name: "Sylwia", free_time: "none", age: 30)
-pp1 = PlantParenthood.create(plant_id: basil.id, person_id: sylwia.id, affection: 1_000_000, favorite?: true)
-
-# 2. Mass create -- in order to connect them later IN SEEDS (not through the app) you'll need to find their id
-## a. by passing an array of hashes:
-Plant.create([
-    {name: "Corn Tree", bought: 20170203, color: "green"},
-    {name: "Prayer plant", bought: 20190815, color: "purple"},
-    {name: "Cactus", bought: 20200110, color: "ugly green"}
-])
-## b. by interating over an array of hashes:
-plants = [{name: "Elephant bush", bought: 20180908, color: "green"},
-    {name: "Photos", bought: 20170910, color: "green"},
-    {name: "Dragon tree", bought: 20170910, color: "green"},
-    {name: "Snake plant", bought: 20170910, color: "dark green"},
-    {name: "polka dot plant", bought: 20170915, color: "pink and green"},
-    {name: "Cactus", bought: 20200517, color: "green"}]
-
-plants.each{|hash| Plant.create(hash)}
-
-# 3. Use Faker and mass create
-## step 1: write a method that creates a person
-def create_person
-    free = ["mornings", "evenings", "always", "afternoons", "weekends", "none"].sample
-
-    person = Person.create(
-        name: Faker::Movies::HitchhikersGuideToTheGalaxy.character,
-        free_time: free,
-        age: rand(11...70)
-    )
-end
-
-## step 2: write a method that creates a joiner
-def create_joiners(person)
-    plants_number = rand(1..4)
-    plants_number.times do 
-        PlantParenthood.create(
-            plant_id: Plant.all.sample.id, 
-            person_id: person.id, 
-            affection: rand(101), 
-            favorite?: [true, false].sample
-        )
-    end
-end
-
-## step 3: invoke creating joiners by passing in an instance of a person
-10.times do     
-    create_joiners(create_person)
-    ##### ALTERNATIVE:
-    # person = create_person
-    # create_joiners(person)
-end
-
-indoor = Category.create(name: "indoors")
-
-Plant.update(category_id: indoor.id)
+Student.destroy_all
+Student.reset_pk_sequence
+Teacher.destroy_all 
+Teacher.reset_pk_sequence
+Lesson.destroy_all 
+Lesson.reset_pk_sequence
 
 
-puts "🔥 🔥 🔥 🔥 "
+
+
+#student seeds
+num = rand(5...21)
+bool_choice = [true, false].sample
+
+Liam = Student.create(first_name: "Liam", last_name: "Smith", age: num, siblings: bool_choice)	
+Olivia = Student.create(first_name: "Olivia", last_name: "Johnson", age: num, siblings: bool_choice)	
+Noah = Student.create(first_name: "Noah", last_name: "Williams", age: num, siblings: bool_choice)		
+Emma = Student.create(first_name: "Emma", last_name: "Miller", age: num, siblings: bool_choice)	
+Oliver = Student.create(first_name: "Oliver", last_name: "Anderson", age: num, siblings: bool_choice)		
+Ava = Student.create(first_name: "Ava", last_name: "Martinez", age: num, siblings: bool_choice)	
+William = Student.create(first_name: "William", last_name: "Vargas", age: num, siblings: bool_choice)		
+Sophia = Student.create(first_name: "Sophia", last_name: "Gonçalves", age: num, siblings: bool_choice)	
+Elijah = Student.create(first_name: "Elijah", last_name: "Garcia", age: num, siblings: bool_choice)		
+Isabella = Student.create(first_name: "Isabella", last_name: "Garcia", age: num, siblings: bool_choice)	
+James = Student.create(first_name: "James", last_name: "Miller", age: num, siblings: bool_choice)		
+Charlotte = Student.create(first_name: "Charlotte", last_name: "Lee", age: num, siblings: bool_choice)	
+Benjamin = Student.create(first_name: "Benjamin", last_name: "Wong", age: num, siblings: bool_choice)		
+Amelia = Student.create(first_name: "Amelia", last_name: "Kim", age: num, siblings: bool_choice)	
+Lucas = Student.create(first_name: "Lucas", last_name: "Lopez", age: num, siblings: bool_choice)		
+Mia = Student.create(first_name: "Mia", last_name: "Silva", age: num, siblings: bool_choice)	
+Mason = Student.create(first_name: "Mason", last_name: "Souza", age: num, siblings: bool_choice)		
+Harper = Student.create(first_name: "Harper", last_name: "Brown", age: num, siblings: bool_choice)	
+Ethan = Student.create(first_name: "Ethan", last_name: "Jones", age: num, siblings: bool_choice)		
+Evelyn = Student.create(first_name: "Evelyn", last_name: "Garcia", age: num, siblings: bool_choice)	
+
+
+
+
+#teacher seeds
+
+
+Brown = Teacher.create(name: "Ms. Brwon", rate_per_hour: 30.0)
+Davis = Teacher.create(name: "Mr. Davis", rate_per_hour: 30.0)
+Miller = Teacher.create(name: "Mr. Miller", rate_per_hour: 30.0)
+Wilson = Teacher.create(name: "Ms. Wilson", rate_per_hour: 30.0)
+
+
+
+
+
+
+
+
+puts "TAUGHT!LEARNT!  
