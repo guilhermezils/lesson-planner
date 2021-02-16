@@ -1,6 +1,7 @@
 class Scheduler
   # here will be your CLI!
-  # it is not an AR class so you need to add attr
+  attr_accessor :first_name, :last_name, :age, :siblings, :length_of_lesson
+  attr_reader :student_id, :teacher_id, :start_time, :name, :rate_per_hour
 
   def run
     # welcome
