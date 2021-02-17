@@ -19,8 +19,9 @@ class Scheduler
   end
 
   def login_or_signup
-    username = down_ask("Enter your username to sign up/log in:")
-    @user = User.find_or_create_by(username: username)
+    puts "Whats is your Full Name?"
+    answer = STDIN.gets.chomp.downcase
+    
   end
 
 
