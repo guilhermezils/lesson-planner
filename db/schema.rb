@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2021_02_16_035956) do
     t.string "last_name"
     t.integer "age"
     t.boolean "siblings"
+    t.string "username"
   end
 
   create_table "teachers", force: :cascade do |t|

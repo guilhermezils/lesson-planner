@@ -14,34 +14,33 @@ Lesson.reset_pk_sequence
 
 
 
-liam = Student.create(first_name: "Liam", last_name: "Smith", age: 8, siblings: true)	
-olivia = Student.create(first_name: "Olivia", last_name: "Johnson", age: 11, siblings: false)		
-noah = Student.create(first_name: "Noah", last_name: "Williams", age: 6, siblings: false)		
-emma = Student.create(first_name: "Emma", last_name: "Miller", age: 4, siblings: false)	
-oliver = Student.create(first_name: "Oliver", last_name: "Anderson", age: 17, siblings: true)		
-ava = Student.create(first_name: "Ava", last_name: "Martinez", age: 12, siblings: false)	
-william = Student.create(first_name: "William", last_name: "Vargas", age: 16, siblings: false)		
-sophia = Student.create(first_name: "Sophia", last_name: "Gonçalves", age: 12, siblings: true)	
-elijah = Student.create(first_name: "Elijah", last_name: "Garcia", age: 13, siblings: false)		
-isabella = Student.create(first_name: "Isabella", last_name: "Garcia", age: 14, siblings: false)	
-james = Student.create(first_name: "James", last_name: "Miller", age: 15, siblings: false)			
-charlotte = Student.create(first_name: "Charlotte", last_name: "Lee", age: 6, siblings: false)	
-benjamin = Student.create(first_name: "Benjamin", last_name: "Wong", age: 7, siblings: true)		
-amelia = Student.create(first_name: "Amelia", last_name: "Kim", age: 8, siblings: false)	
-lucas = Student.create(first_name: "Lucas", last_name: "Lopez", age: 10, siblings: true)		
-mia = Student.create(first_name: "Mia", last_name: "Silva", age: 11, siblings: false)		
-mason = Student.create(first_name: "Mason", last_name: "Souza", age: 13, siblings: false)		
-harper = Student.create(first_name: "Harper", last_name: "Brown", age: 14, siblings: false)	
-ethan = Student.create(first_name: "Ethan", last_name: "Jones", age: 15, siblings: false)		
-evelyn = Student.create(first_name: "Evelyn", last_name: "Garcia", age: 16, siblings: false)	
-
+liam = Student.create(first_name: "Liam", last_name: "Smith", age: 8, siblings: true, username: "liamsmith")	
+olivia = Student.create(first_name: "Olivia", last_name: "Johnson", age: 11, siblings: false, username: "oliviajohnson")		
+noah = Student.create(first_name: "Noah", last_name: "Williams", age: 6, siblings: false, username: "noahwilliams")		
+emma = Student.create(first_name: "Emma", last_name: "Miller", age: 4, siblings: false, username: "emmamiller")	
+oliver = Student.create(first_name: "Oliver", last_name: "Anderson", age: 17, siblings: true, username: "oliveranderson")		
+ava = Student.create(first_name: "Ava", last_name: "Martinez", age: 12, siblings: false, username: "avamartinez")	
+william = Student.create(first_name: "William", last_name: "Vargas", age: 16, siblings: false, username: "williamvargas")		
+sophia = Student.create(first_name: "Sophia", last_name: "Goncalves", age: 12, siblings: true, username: "sophiagoncalves")	
+elijah = Student.create(first_name: "Elijah", last_name: "Garcia", age: 13, siblings: false, username: "elijahgarcia")		
+isabella = Student.create(first_name: "Isabella", last_name: "Garcia", age: 14, siblings: false, username: "isabellagarcia")	
+james = Student.create(first_name: "James", last_name: "Miller", age: 15, siblings: false, username: "jamesmiller")			
+charlotte = Student.create(first_name: "Charlotte", last_name: "Lee", age: 6, siblings: false, username: "charlottelee")	
+benjamin = Student.create(first_name: "Benjamin", last_name: "Wong", age: 7, siblings: true, username: "benjaminwong")		
+amelia = Student.create(first_name: "Amelia", last_name: "Kim", age: 8, siblings: false, username: "ameliakim")	
+lucas = Student.create(first_name: "Lucas", last_name: "Lopez", age: 10, siblings: true, username: "lucaslopez")		
+mia = Student.create(first_name: "Mia", last_name: "Silva", age: 11, siblings: false, username: "miasilva")		
+mason = Student.create(first_name: "Mason", last_name: "Souza", age: 13, siblings: false, username: "masonsouza")		
+harper = Student.create(first_name: "Harper", last_name: "Brown", age: 14, siblings: false, username: "harperbrown")	
+ethan = Student.create(first_name: "Ethan", last_name: "Jones", age: 15, siblings: false, username: "ethanjones")		
+evelyn = Student.create(first_name: "Evelyn", last_name: "Garcia", age: 16, siblings: false, username: "evelyngarcia")	
 
 
 
 #teacher seeds
 
 
-brown = Teacher.create(name: "Ms. Brwon", rate_per_hour: 30.0)
+brown = Teacher.create(name: "Ms. Brown", rate_per_hour: 30.0)
 davis = Teacher.create(name: "Mr. Davis", rate_per_hour: 20.0)
 miller = Teacher.create(name: "Mr. Miller", rate_per_hour: 30.0)
 wilson = Teacher.create(name: "Ms. Wilson", rate_per_hour: 20.0)
