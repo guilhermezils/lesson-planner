@@ -51,6 +51,7 @@ class Scheduler
      puts student_schedule
      sleep(1)
     else
+      system 'clear'
       puts "Thanks"
       sleep(1)
     end
@@ -80,7 +81,14 @@ class Scheduler
     puts "Would you like to cancel your lesson? Y/N"
     answer = gets.chomp.downcase
     if answer.downcase == "y"
-      binding.pry
+      puts "Are you sure?"
+      answer = gets.chomp.downcase
+      if answer.downcase == "y"
+        x = @student.id
+        Lesson.where(student_id:x).destroy_all
+      else
+        puts "Thank you, Have a nice day!"
+      end
     end
 
   end
