@@ -15,26 +15,31 @@ class Scheduler
   end
 
   private
+ 
 
   def welcome
-    puts "Welcome to the Scheduler for our School of Music"
-    sleep(1)
+    system 'clear'
+    puts "Welcome to the Scheduler for our School of Music".colorize(:color => :red).bold
+    sleep(3)
+    system 'clear'
   end
 
   def login_or_signup
-   puts"Please enter your assigned login? \n if you don'\ t have a username please write your name and contact information"
-   answer = gets.chomp.downcase
-   @student = Student.find_or_create_by(username: answer)
-  #binding.pry
-  puts "Welcome, #{@student.first_name}!"
+    puts"Please enter your assigned username ".colorize(:color => :red).bold
+    puts "if you don'\ t have a username please write your name and contact information".colorize(:color => :red)
+    answer = gets.chomp.downcase
+    @student = Student.find_or_create_by(username: answer)
+    system 'clear'
+    puts "Welcome, #{@student.first_name}!".colorize(:color => :red)
   sleep(1)
   end
 
-
+#helper method
   def student_schedule
     @lesson = Lesson.find_by(student_id)
     @lesson.start_time
   end
+#helper method
   def lesson_amount
     lesson_amount = Lesson.find_by(student_id)
     lesson_amount.length_of_lesson
@@ -43,16 +48,17 @@ class Scheduler
   
   
   def check_schedule
-    puts "check schedule? Y/N"
+    puts " \nWoud you like to check your schedule? Y/N".colorize(:color => :red)
     answer = gets.chomp.downcase
     if answer.downcase == "y"
       system 'clear'
       #helper method
      puts student_schedule
+     puts lesson_amount
      sleep(1)
     else
       system 'clear'
-      puts "Thanks"
+      puts "Thanks".colorize(:color => :red)
       sleep(1)
     end
   end
@@ -60,35 +66,40 @@ class Scheduler
 
 
   def update_length_of_lesson
-    puts "Would you like to change length of lesson? Y/N"
+    puts "\nWould you like to change length of lesson? Y/N".colorize(:color => :red)
     answer = gets.chomp.downcase
   
     if answer.downcase == "y"
       system 'clear'
-      puts "How long would you like? \n 0.5 = 30min \n 1.0 = 1hour"
+      puts "\nHow long would you like? \n \n 0.5 = 30min \n 1.0 = 1hour".colorize(:color => :red)
       num = gets.chomp
 
       x = @student.id
     Lesson.where(student_id:x).update(length_of_lesson: num.to_f)
   
     else
-  puts "Okay"
+  puts "\nGreat".colorize(:color => :red)
     end
 
   end
 
   def cancel_lesson
-    puts "Would you like to cancel your lesson? Y/N"
+    puts "Would you like to cancel your lesson? Y/N".colorize(:color => :red)
     answer = gets.chomp.downcase
     if answer.downcase == "y"
-      puts "Are you sure?"
+      puts "Are you sure?".colorize(:color => :red)
       answer = gets.chomp.downcase
       if answer.downcase == "y"
         x = @student.id
-        Lesson.where(student_id:x).destroy_all
-      else
-        puts "Thank you, Have a nice day!"
+        Lesson.where(student_id:x).destroy
       end
+    else
+      system 'clear'
+      sleep(1)
+      puts "Thanks, have a nice day!".colorize(:color => :red)
+
+      sleep(5)
+      
     end
 
   end
