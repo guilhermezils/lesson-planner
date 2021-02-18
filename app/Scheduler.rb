@@ -7,6 +7,8 @@ class Scheduler
       welcome
       login_or_signup
       check_schedule
+      update_length_of_lesson
+      cancel_lesson
     # wanna_see_favs?
     # some_method(some_argument)
     # exit
@@ -20,33 +22,70 @@ class Scheduler
   end
 
   def login_or_signup
-   puts"Username to login? if you don'\ t have a username please write your name and contact information"
+   puts"Please enter your assigned login? \n if you don'\ t have a username please write your name and contact information"
    answer = gets.chomp.downcase
    @student = Student.find_or_create_by(username: answer)
   #binding.pry
   puts "Welcome, #{@student.first_name}!"
+  sleep(1)
   end
 
+
+  def student_schedule
+    @lesson = Lesson.find_by(student_id)
+    @lesson.start_time
+  end
+  def lesson_amount
+    lesson_amount = Lesson.find_by(student_id)
+    lesson_amount.length_of_lesson
+  end
+
+  
+  
   def check_schedule
     puts "check schedule? Y/N"
-    answer1 = gets.chomp.downcase
-
-    answer = gets.chomp
-    if answer.downcase == "yes"
+    answer = gets.chomp.downcase
+    if answer.downcase == "y"
       system 'clear'
-      # again, a helper method
-      show_jokes
-      # binding.pry
-      puts "\n"
+      #helper method
+     puts student_schedule
+     sleep(1)
     else
-      puts "Alrighty!"
+      puts "Thanks"
+      sleep(1)
     end
-    # Prompt user but split the prompts so it's more readible
-    puts "What do you want to hear a joke about?"
-    sleep(0.1)
-    puts "Write 'random' to see a random joke"
   end
 
+
+
+  def update_length_of_lesson
+    puts "Would you like to change length of lesson? Y/N"
+    answer = gets.chomp.downcase
+  
+    if answer.downcase == "y"
+      system 'clear'
+      puts "How long would you like? \n 0.5 = 30min \n 1.0 = 1hour"
+      num = gets.chomp
+
+      x = @student.id
+    Lesson.where(student_id:x).update(length_of_lesson: num.to_f)
+  
+    else
+  puts "Okay"
+    end
+
+  end
+
+  def cancel_lesson
+    puts "Would you like to cancel your lesson? Y/N"
+    answer = gets.chomp.downcase
+    if answer.downcase == "y"
+      binding.pry
+    end
+
+  end
+
+  
   
 
 
