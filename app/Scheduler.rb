@@ -33,22 +33,22 @@ class Scheduler
   sleep(1)
   end
 
-#helper method
+#helper method - check schedule
   def student_schedule
-    @lesson = Lesson.find_by(student_id)
+    @lesson = Lesson.find(@student.id)
     @lesson.start_time
   end
-#helper method
+#helper method - check schedule
   def lesson_amount
-    lesson_amount = Lesson.find_by(student_id)
+    lesson_amount = Lesson.find(@student.id)
     lesson_amount.length_of_lesson
     #if 1.0 = 1hour
     #if 0.5 - 30min
   end
-#helper method
+#helper method - update_length_of_lesson
   def updated_schedule
     x = @student.id
-    update = Lesson.find_by(student_id:x)
+    update = Lesson.find(x)
     update.length_of_lesson
   end
 
@@ -58,6 +58,7 @@ class Scheduler
   def check_schedule
     puts " \nWoud you like to check your schedule? Y/N".colorize(:color => :red)
     answer = STDIN.gets.chomp.downcase
+    
     if answer.downcase == "y"
       system 'clear'
       #helper method
@@ -69,6 +70,7 @@ class Scheduler
       puts "Thanks".colorize(:color => :red)
       sleep(1)
     end
+  
   end
 
 
@@ -96,12 +98,13 @@ class Scheduler
   def cancel_lesson
     puts "Would you like to cancel your lesson? Y/N".colorize(:color => :red)
     answer = STDIN.gets.chomp.downcase
+    
     if answer.downcase == "y"
       puts "Are you sure?".colorize(:color => :red)
       answer = STDIN.gets.chomp.downcase
       if answer.downcase == "y"
-        x = @student.id
-        Lesson.where(student_id:x).destroy
+        student_id = @student.id
+        @lesson.destroy
       end
       
     end

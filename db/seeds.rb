@@ -66,10 +66,10 @@ Lesson.create(student_id: benjamin.id, teacher_id: brown.id, start_time:"6PM", l
 Lesson.create(student_id: amelia.id, teacher_id: davis.id, start_time:"6PM", length_of_lesson: 0.5)
 Lesson.create(student_id: lucas.id, teacher_id: miller.id, start_time:"6PM", length_of_lesson: 1.0)
 Lesson.create(student_id: mia.id, teacher_id: wilson.id, start_time:"6PM", length_of_lesson: 1.0)
-Lesson.create(student_id: mason.id, teacher_id: brown.id, start_time:"7PM", length_of_lesson: 0.5)
-Lesson.create(student_id: harper.id, teacher_id: davis.id, start_time:"7PM", length_of_lesson: 0.5)
+Lesson.create(student_id: mason.id, teacher_id: miller.id, start_time:"7PM", length_of_lesson: 0.5)
+Lesson.create(student_id: harper.id, teacher_id: miller.id, start_time:"7PM", length_of_lesson: 0.5)
 Lesson.create(student_id: ethan.id, teacher_id: miller.id, start_time:"7PM", length_of_lesson: 1.0)
-Lesson.create(student_id: evelyn.id, teacher_id: wilson.id, start_time:"7PM", length_of_lesson: 1.0)
+Lesson.create(student_id: evelyn.id, teacher_id: miller.id, start_time:"7PM", length_of_lesson: 1.0)
 
 
 
